@@ -1,7 +1,14 @@
 WinOCPHC - Windows Offline Common Password Hash Checker
+
 ============================================
 
 Auto review Windows Password hashes and compare looking for common password, disabled and previous passwords.
+
+Useful for reviewing domain controller or local Windows password hashes. Will highlight common passwords used between users.
+This can assist finding missing processes during a pen test, such as the Helpdesk configuring new users with all the same passwords and not forcing them to change the password at next login. Also things like no regular passwords changes or users being allowed to reset their passwords to previous values.
+
+Ths script does not crack or attempt to crack hashes, it simply is an easy way to highlight issues. Often I find standard domain users have the same password set as domain administrators.
+
 
 Developed by Daniel Compton
 
