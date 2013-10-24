@@ -25,28 +25,31 @@ Released under AGPL see LICENSE for more information
 Installing
 ========
 
-Windows Offline Common Password Hash Checker
+    git clone https://github.com/commonexploits/winocphc.git
 
 How To Use
 ========
 
-Windows Offline Common Password Hash Checker
+    ./winocphc.sh
 
 
 Features
 ========
 
-Windows Offline Common Password Hash Checker
-
+* Auto reads file output from hashdump, fgdump, gsecdump, pwdump etc
+* Finds common passwords hashes and lists all users that share passwords
+* Lists disabled accounts (if fgdump/gsecdump tool used and if exist)
+* Lists and checks history passwords ((if fgdump/gsecdump tool used and if exist) and alerts if user has the same password as previously set
+* Masks the hash output for reporting. Not good practice to put a password of the hash in a pen test report.
 
 Screen Shots
 ========
 
-Windows Offline Common Password Hash Checker
+http://commonexploits.com/wp-content/uploads/2013/10/1.jpg
 
 
 Change Log
 ========
 
-Windows Offline Common Password Hash Checker
+* Version 1.0 - First release.
 
