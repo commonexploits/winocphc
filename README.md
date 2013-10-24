@@ -11,7 +11,7 @@ It will display all users with the same password set (as hash value is the same 
 It will highlight disabled or previously set passwords (if fgdump/gsecdump used) and flag if a user has the same password as previously set.
 
 This is useful for pen tests as can highlight missing processes within a company, such as the Helpdesk could be creating all new users with the same password, but not forcing a password change at next login.
-It also will highlight if the user has been able to set their password to one that was previosuly used. Plus shows they are probably not forcing regular password changes for users.
+It also will highlight if the user has been able to set their password to one that was previously used. Plus shows they are probably not forcing regular password changes for users.
 
 Often I find many standard domain users have the same password as many domain administrators.
 
