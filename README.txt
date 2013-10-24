@@ -46,5 +46,3 @@ Change Log
 =======================
 
 * Version 1.0 - First release.
-
-http://commonexploits.com/wp-content/uploads/2013/10/1.jpg
