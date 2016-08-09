@@ -59,4 +59,5 @@ Change Log
 ========
 
 * Version 1.0 - First release.
+* Version 1.1 - Hopefully fixed issue where couldnt detect duplicate hashes from output from secrets dump
 
