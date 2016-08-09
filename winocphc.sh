@@ -13,7 +13,7 @@ HASHFILE="hashes-tmp"
 # Script begins
 #===============================================================================
 
-VERSION="1.0"
+VERSION="1.1"
 clear
 echo -e "\e[00;31m#############################################################\e[00m"
 echo -e "WinOCPHC Version $VERSION "
@@ -38,12 +38,12 @@ cat "$HASHFILEIN" >/dev/null 2>&1
      echo ""
      exit 1
    else
-     NOHASHCOUNT=$(cat "$HASHFILEIN" |grep ":::" |wc -l)
+     NOHASHCOUNT=$(cat "$HASHFILEIN" | sed -n '/$:/!p' |grep ":::" |wc -l)
      echo ""
      echo -e "\e[01;32m[-]\e[00m I can read "$NOHASHCOUNT" hashes from the file"
  fi
 
-DUP=$(cat "$HASHFILEIN" |grep -v "*:::" |grep ":::" |grep -v '\\' |cut -d ":" -f 1,4 | cut -d ":" -f 2 |uniq -d |wc -l)
+DUP=$(cat "$HASHFILEIN" |sed -n '/$:/!p' |grep ":::" | cut -d ":" -f 4 |uniq -d | wc -l)
 if [ "$DUP" -lt 1 ]
 	then
 		echo ""
@@ -139,11 +139,11 @@ echo -e "\e[01;33m--------------------------------------------------------------
 echo -e "Hash: \e[01;32m"$DUPLICATE"\e[00m - \e[01;32m"$COUNT"\e[00m Users share the same password"
 echo -e "\e[01;33m---------------------------------------------------------------------------\e[00m"
 
-cat livehash.tmp | grep "$DUPLICATE" >/dev/null 2>&1
+cat "$HASHFILE" | grep "$DUPLICATE" >/dev/null 2>&1
 if [ $? = 0 ]
 	then
-		AUSERNAME=$(cat livehash.tmp |grep "$DUPLICATE" |cut -d ":" -f 1)
-		ACOUNT=$(cat livehash.tmp |grep "$DUPLICATE" |cut -d ":" -f 1 |wc -l)
+		AUSERNAME=$(cat "$HASHFILE" |grep "$DUPLICATE" |cut -d ":" -f 1)
+		ACOUNT=$(cat "$HASHFILE" |grep "$DUPLICATE" |cut -d ":" -f 1 |wc -l)
 		echo -e "\e[01;32m-------------------------------------------------\e[00m"
 		echo -e "\e[01;32m[+]\e[00m Active User Password - \e[01;32m"$ACOUNT"\e[00m Affected Accounts"
 		echo -e "\e[01;32m-------------------------------------------------\e[00m"
